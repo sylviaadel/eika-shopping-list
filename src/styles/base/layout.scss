@@ -33,6 +33,17 @@
   }
 }
 
+.link-btn {
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent;
+  border: 0;
+  display: inline-flex;
+  img {
+    margin: 2px 5px 0 0;
+  }
+}
+
 @media (min-width: 860px) {
   .primary-btn {
     font-size: 30px;
