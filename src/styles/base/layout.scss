@@ -1,45 +1,39 @@
 /* Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Rubik", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
-h1 {
-  font-size: 34px;
+.App {
+  margin: $spacing-medium;
 }
 
-h2 {
-  font-size: 28px;
+.App .logo {
+  width: 100px;
+  margin-bottom: $spacing-large;
 }
 
-h3 {
-  font-size: 20px;
-}
-
-p,
-a {
-  font-size: 16px;
+.primary-btn {
+  background-color: $BlueColor;
+  border-radius: 500px;
+  height: 44px;
+  width: 200px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: 0;
+  &:hover,
+  &:focus {
+    background-color: $darkBlueColor;
+  }
 }
 
 @media (min-width: 860px) {
-  h1 {
-    font-size: 55px;
-  }
-  h2 {
-    font-size: 46px;
-  }
-  h3 {
-    font-size: 30px;
-  }
-  p,
-  a {
-    font-size: 20px;
-  }
   .primary-btn {
     font-size: 30px;
     border-radius: 500px;
