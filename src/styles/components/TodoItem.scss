@@ -1,0 +1,15 @@
+.todo-item {
+  margin-bottom: $spacing-small;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  .item-name {
+    text-transform: uppercase;
+  }
+  .spacer {
+    flex-grow: 1;
+  }
+  .item-price {
+    font-weight: bold;
+  }
+}
