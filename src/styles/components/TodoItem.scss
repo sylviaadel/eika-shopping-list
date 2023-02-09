@@ -1,0 +1,40 @@
+.todo-item {
+  margin-bottom: $spacing-small;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  align-items: center;
+  .item-name {
+    text-transform: uppercase;
+  }
+  .spacer {
+    flex-grow: 1;
+  }
+  .item-price {
+    font-weight: bold;
+  }
+  .custom-checkbox {
+    height: 38px;
+    input[type="checkbox"] {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+    .checkbox {
+      display: inline-block;
+      height: 38px;
+      width: 38px;
+      background: $lightGreyColor;
+      margin-right: $spacing-xsmall;
+      border-radius: 8px;
+    }
+    .checkbox--active {
+      background: url(../../assets/images/icon-checkmark.svg) $blueColor
+        no-repeat center;
+    }
+  }
+}

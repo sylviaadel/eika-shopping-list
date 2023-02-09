@@ -2,6 +2,9 @@
   text-align: center;
   button.primary-btn {
     display: block;
-    margin: $spacing-small auto;
+    margin: 0 auto $spacing-small;
+  }
+  p {
+    margin-bottom: $spacing-small;
   }
 }
