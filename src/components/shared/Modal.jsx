@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import Form from "../modal/Form";
+import Form from "../modal/AddItemForm";
 
 export default function Modal({ open, onClose }) {
   const PortalElement = document.getElementById("portal");
