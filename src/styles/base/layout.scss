@@ -10,7 +10,8 @@
 }
 
 .App {
-  margin: $spacing-medium;
+  margin: $spacing-medium auto;
+  max-width: 327px;
 }
 
 .App .logo {
@@ -41,12 +42,5 @@
   display: inline-flex;
   img {
     margin: 2px 5px 0 0;
-  }
-}
-
-@media (min-width: 860px) {
-  .primary-btn {
-    font-size: 30px;
-    border-radius: 500px;
   }
 }

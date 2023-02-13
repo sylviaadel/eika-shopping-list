@@ -1,6 +1,9 @@
+import { useState } from "react";
 import WelcomeImage from "../assets/images/welcome-screen-img.png";
+import Modal from "../components/shared/Modal";
 
 export default function Welcome() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div id="welcome-screen">
       <img
@@ -17,7 +20,10 @@ export default function Welcome() {
         the name and the price of the item you want to add. You can also and an
         image after the item is added by touching the camera icon.
       </p>
-      <button className="primary-btn">Add item</button>
+      <button className="primary-btn" onClick={() => setIsOpen(true)}>
+        Add item
+      </button>
+      <Modal open={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   );
 }
