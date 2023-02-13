@@ -10,7 +10,8 @@
 }
 
 .App {
-  margin: $spacing-medium;
+  margin: $spacing-medium auto;
+  max-width: 327px;
 }
 
 .App .logo {
