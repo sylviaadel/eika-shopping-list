@@ -1,5 +1,4 @@
 export default function addItem(item) {
-  debugger;
   if (
     item.name === undefined ||
     item.name === null ||
