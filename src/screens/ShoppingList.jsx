@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Sorter from "../components/shoppingList/Sorter";
 import TodoList from "../components/shoppingList/TodoList";
-import Modal from "../components/shared/Modal";
+import AddItemForm from "../components/modal/AddItemForm";
 
-export default function ShoppingListing() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function ShoppingListing({ setModal }) {
   const [showCompleted, setShowCompleted] = useState(false);
 
   return (
@@ -12,7 +11,10 @@ export default function ShoppingListing() {
       <h1>Shopping List</h1>
       <Sorter />
       <TodoList />
-      <button className="primary-btn" onClick={() => setIsOpen(true)}>
+      <button
+        className="primary-btn"
+        onClick={() => setModal(<AddItemForm setModal={setModal} />)}
+      >
         Add item
       </button>
       <button
@@ -22,7 +24,6 @@ export default function ShoppingListing() {
         View Completed items
       </button>
       {showCompleted && <TodoList />}
-      <Modal open={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   );
 }
