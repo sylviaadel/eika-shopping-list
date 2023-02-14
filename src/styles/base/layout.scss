@@ -42,3 +42,9 @@
   border: 0;
   display: inline-flex;
 }
+@media (min-width: 550px) {
+  .primary-btn,
+  .link-btn {
+    font-size: 18px;
+  }
+}

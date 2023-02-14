@@ -4,3 +4,9 @@
   margin: $spacing-small 0;
   font-size: 14px;
 }
+
+@media (min-width: 550px) {
+  .sorter {
+    font-size: 18px;
+  }
+}

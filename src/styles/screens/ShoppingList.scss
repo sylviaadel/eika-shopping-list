@@ -21,3 +21,12 @@
     }
   }
 }
+
+@media (min-width: 550px) {
+  #shopping-list {
+    .view-hidden-items {
+      font-size: 18px;
+      background-size: 20px;
+    }
+  }
+}
