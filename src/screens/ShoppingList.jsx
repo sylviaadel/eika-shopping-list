@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Sorter from "../components/shoppingList/Sorter";
-import eyeOpenIcon from "../assets/images/icon-eye-open.svg";
 import TodoList from "../components/shoppingList/TodoList";
 import Modal from "../components/shared/Modal";
 
@@ -17,10 +16,9 @@ export default function ShoppingListing() {
         Add item
       </button>
       <button
-        className="link-btn"
+        className={`view-hidden-items ${showCompleted ? "opened" : ""}`}
         onClick={() => setShowCompleted(!showCompleted)}
       >
-        <img src={eyeOpenIcon} alt="Eye Open Icon" />
         View hidden items
       </button>
       {showCompleted && <TodoList />}
