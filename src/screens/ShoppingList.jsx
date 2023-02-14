@@ -6,18 +6,20 @@ import Modal from "../components/shared/Modal";
 
 export default function ShoppingListing() {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div id="shopping-list">
       <h1>Shopping List</h1>
       <Sorter />
       <TodoList />
-      <button className="primary-btn">Add item</button>
-      <button className="link-btn" onClick={() => setIsOpen(true)}>
+      <button className="primary-btn" onClick={() => setIsOpen(true)}>
+        Add item
+      </button>
+      <button className="link-btn">
         <img src={eyeOpenIcon} alt="Eye Open Icon" />
         View hidden items
       </button>
-      <Modal open={isOpen} />
+      <TodoList />
+      <Modal open={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   );
 }

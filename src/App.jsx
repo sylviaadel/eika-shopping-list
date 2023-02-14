@@ -7,8 +7,8 @@ export default function App() {
   return (
     <div className="App">
       <Header />
-      <Welcome />
-      {/* <ShoppingListing /> */}
+      {/* <Welcome /> */}
+      <ShoppingListing />
     </div>
   );
 }
