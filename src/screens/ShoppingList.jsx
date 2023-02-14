@@ -19,7 +19,7 @@ export default function ShoppingListing() {
         className={`view-hidden-items ${showCompleted ? "opened" : ""}`}
         onClick={() => setShowCompleted(!showCompleted)}
       >
-        View hidden items
+        View Completed items
       </button>
       {showCompleted && <TodoList />}
       <Modal open={isOpen} onClose={() => setIsOpen(false)} />
