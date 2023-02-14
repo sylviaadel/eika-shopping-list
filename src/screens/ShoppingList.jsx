@@ -6,6 +6,8 @@ import Modal from "../components/shared/Modal";
 
 export default function ShoppingListing() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showCompleted, setShowCompleted] = useState(false);
+
   return (
     <div id="shopping-list">
       <h1>Shopping List</h1>
@@ -14,11 +16,14 @@ export default function ShoppingListing() {
       <button className="primary-btn" onClick={() => setIsOpen(true)}>
         Add item
       </button>
-      <button className="link-btn">
+      <button
+        className="link-btn"
+        onClick={() => setShowCompleted(!showCompleted)}
+      >
         <img src={eyeOpenIcon} alt="Eye Open Icon" />
         View hidden items
       </button>
-      <TodoList />
+      {showCompleted && <TodoList />}
       <Modal open={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   );
