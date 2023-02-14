@@ -43,6 +43,9 @@
   display: inline-flex;
 }
 @media (min-width: 550px) {
+  .App {
+    margin: $spacing-xlarge auto 0;
+  }
   .primary-btn,
   .link-btn {
     font-size: 18px;
