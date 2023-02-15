@@ -35,6 +35,7 @@ export default function Form({ setModal }) {
     <form onSubmit={(e) => onSubmit(e, name, price)}>
       <label>Product name</label>
       <input
+        data-testid="name-textbox"
         autoFocus
         type="text"
         value={name}
@@ -44,12 +45,13 @@ export default function Form({ setModal }) {
       {nameError}
       <label>Price</label>
       <input
+        data-testid="price-textbox"
         type="number"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
       {priceError}
-      <button className="primary-btn" type="submit">
+      <button data-testid="submit-btn" className="primary-btn" type="submit">
         Submit
       </button>
     </form>
