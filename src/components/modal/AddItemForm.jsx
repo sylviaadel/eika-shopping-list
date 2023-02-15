@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ItemsContext } from "../../state/ItemsContext";
 
 export default function Form({ setModal }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+
+  const { ItemsList, setItemsList } = useContext(ItemsContext);
+
   const nameError = name.length < 1 && (
     <p className="error-text">Please enter a valid name.</p>
   );
@@ -18,6 +22,8 @@ export default function Form({ setModal }) {
     if (nameError || priceError) {
       e.preventDefault();
     }
+
+    setItemsList([]);
   }
 
   return (

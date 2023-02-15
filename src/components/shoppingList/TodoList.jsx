@@ -1,10 +1,11 @@
+import { useContext, useState } from "react";
 import TodoItem from "./TodoItem";
 
-export default function TodoList({ items }) {
-  return (
-    <section>
-      <TodoItem />
-      {items < 1 && <p>No items in this list</p>}
-    </section>
-  );
+import { ItemsContext } from "../../state/ItemsContext";
+
+export default function TodoList({}) {
+  const ShoppingItems = useContext(ItemsContext);
+  const [items, setItems] = useState(ShoppingItems);
+  const itemList = ShoppingItems.map((item) => <TodoItem item={item} />);
+  return ShoppingItems.length > 0 ? itemList : <p>No items in this list</p>;
 }

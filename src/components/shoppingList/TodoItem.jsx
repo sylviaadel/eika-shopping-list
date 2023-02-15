@@ -1,12 +1,12 @@
 import Checkbox from "./Checkbox";
 
-export default function TodoItem() {
+export default function TodoItem(props) {
   return (
     <article className="todo-item">
       <Checkbox />
-      <span className="item-name">Chair</span>
+      <span className="item-name">{props.item.name}</span>
       <span className="spacer"></span>
-      <span className="item-price">300:-</span>
+      <span className="item-price">{props.item.price}:-</span>
     </article>
   );
 }
