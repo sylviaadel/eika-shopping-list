@@ -1,23 +1,29 @@
 import { useState } from "react";
 import Sorter from "../components/shoppingList/Sorter";
-import eyeOpenIcon from "../assets/images/icon-eye-open.svg";
 import TodoList from "../components/shoppingList/TodoList";
-import Modal from "../components/shared/Modal";
+import AddItemForm from "../components/modal/AddItemForm";
 
-export default function ShoppingListing() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function ShoppingListing({ setModal }) {
+  const [showCompleted, setShowCompleted] = useState(false);
 
   return (
     <div id="shopping-list">
       <h1>Shopping List</h1>
       <Sorter />
       <TodoList />
-      <button className="primary-btn">Add item</button>
-      <button className="link-btn" onClick={() => setIsOpen(true)}>
-        <img src={eyeOpenIcon} alt="Eye Open Icon" />
-        View hidden items
+      <button
+        className="primary-btn"
+        onClick={() => setModal(<AddItemForm setModal={setModal} />)}
+      >
+        Add item
       </button>
-      <Modal open={isOpen} />
+      <button
+        className={`view-hidden-items ${showCompleted ? "opened" : ""}`}
+        onClick={() => setShowCompleted(!showCompleted)}
+      >
+        View Completed items
+      </button>
+      {showCompleted && <TodoList />}
     </div>
   );
 }

@@ -1,10 +1,14 @@
 import { useState } from "react";
 
-export default function Form() {
+export default function Form({ setModal }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const nameError = <p className="error-text">Please enter a valid name.</p>;
-  const priceError = <p className="error-text">Please enter a valid price.</p>;
+  const nameError = name.length < 1 && (
+    <p className="error-text">Please enter a valid name.</p>
+  );
+  const priceError = price < 1 && (
+    <p className="error-text">Please enter a valid price.</p>
+  );
 
   function validate() {
     setName(name.trim());
@@ -26,15 +30,14 @@ export default function Form() {
         onChange={(e) => setName(e.target.value)}
         onBlur={() => validate()}
       />
-      {name.length < 1 && nameError}
+      {nameError}
       <label>Price</label>
       <input
         type="number"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
-        onBlur={() => validate()}
       />
-      {price < 1 && priceError}
+      {priceError}
       <button className="primary-btn" type="submit">
         Submit
       </button>

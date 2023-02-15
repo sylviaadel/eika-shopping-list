@@ -7,4 +7,26 @@
   p {
     margin-bottom: $spacing-small;
   }
+  .view-hidden-items {
+    background: url(../../assets/images/icon-eye-open.svg) no-repeat 1px center;
+    padding-left: 1.5rem;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 0;
+    display: inline-flex;
+    &.opened {
+      background: url(../../assets/images/icon-eye-close.svg) no-repeat 1px
+        center;
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  #shopping-list {
+    .view-hidden-items {
+      font-size: 18px;
+      background-size: 20px;
+    }
+  }
 }

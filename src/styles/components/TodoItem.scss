@@ -38,3 +38,12 @@
     }
   }
 }
+
+@media (min-width: 550px) {
+  .todo-item {
+    .item-name,
+    .item-price {
+      font-size: 16px;
+    }
+  }
+}

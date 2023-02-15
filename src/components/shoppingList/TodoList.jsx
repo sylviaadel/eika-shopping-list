@@ -1,10 +1,10 @@
 import TodoItem from "./TodoItem";
 
-export default function TodoList() {
+export default function TodoList({ items }) {
   return (
     <section>
       <TodoItem />
-      <p>No items in this list</p>
+      {items < 1 && <p>No items in this list</p>}
     </section>
   );
 }
