@@ -1,5 +1,4 @@
 import ReactDOM from "react-dom";
-import AddItemForm from "../modal/AddItemForm";
 
 export default function Modal({ state }) {
   const [modal, setModal] = state;

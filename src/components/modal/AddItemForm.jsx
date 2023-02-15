@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useItems } from "../../state/ItemsContext";
 
 export default function Form({ setModal }) {
+  const [items, setItems] = useItems();
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const nameError = name.length < 1 && (
@@ -14,14 +16,23 @@ export default function Form({ setModal }) {
     setName(name.trim());
   }
 
-  function onSubmit(e) {
+  function onSubmit(e, name, price) {
+    const addedItem = {
+      id: items.length,
+      name: name,
+      price: price,
+      isCompleted: false,
+    };
+    e.preventDefault();
+    setItems([...items, addedItem]);
     if (nameError || priceError) {
       e.preventDefault();
     }
+    setModal(null);
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={(e) => onSubmit(e, name, price)}>
       <label>Product name</label>
       <input
         autoFocus
