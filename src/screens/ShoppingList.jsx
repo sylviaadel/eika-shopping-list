@@ -20,7 +20,7 @@ export default function ShoppingListing({ setModal }) {
   return (
     <div id="shopping-list">
       <h1>Shopping List</h1>
-      <Sorter />
+      <Sorter itemList={pendingItems} />
       <TodoList items={pendingItems} onCheck={onCheck} />
       <button
         className="primary-btn"
