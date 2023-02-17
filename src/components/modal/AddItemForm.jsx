@@ -10,7 +10,8 @@ export default function Form({ setModal }) {
 
   function onSubmit(e, name, price) {
     const addedItem = {
-      id: items.length,
+      //added this work around because items are undefined on testcases
+      id: items == undefined ? 1 : items.length,
       name: name,
       price: price,
       isCompleted: false,
