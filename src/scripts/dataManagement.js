@@ -1,6 +1,6 @@
 export function loadData(storageKey) {
   const stringData = localStorage.getItem(storageKey);
-  const arrayData = stringData !== "" ? JSON.parse(stringData) : [];
+  const arrayData = stringData !== "" ? JSON.parse(stringData) || [] : [];
 
   return arrayData;
 }
