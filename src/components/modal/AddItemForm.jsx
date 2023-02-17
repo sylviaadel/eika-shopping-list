@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useItems } from "../../state/ItemsContext";
 import { nameErrorText, priceErrorText } from "../../scripts/addItemHelpers";
-import { addItemName, addItemPrice } from "../../scripts/tests/addItem";
+import { validItemName, validItemPrice } from "../../scripts/tests/addItem";
 
 export default function Form({ setModal }) {
   const { items, setItems } = useItems();
@@ -16,7 +16,7 @@ export default function Form({ setModal }) {
       isCompleted: false,
     };
     e.preventDefault();
-    if (!addItemName(addedItem.name) || !addItemPrice(addedItem.price)) {
+    if (!validItemName(addedItem.name) || !validItemPrice(addedItem.price)) {
       e.preventDefault();
     } else {
       setItems([...items, addedItem]);
@@ -34,7 +34,7 @@ export default function Form({ setModal }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      {addItemName(name) ? "" : nameErrorText}
+      {validItemName(name) ? "" : nameErrorText}
       <label>Price</label>
       <input
         data-testid="price-textbox"
@@ -42,7 +42,7 @@ export default function Form({ setModal }) {
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
-      {addItemPrice(price) ? "" : priceErrorText}
+      {validItemPrice(price) ? "" : priceErrorText}
       <button data-testid="submit-btn" className="primary-btn" type="submit">
         Submit
       </button>
