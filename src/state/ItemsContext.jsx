@@ -1,12 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { loadData, saveData } from "../scripts/dataManagement";
 
-const ItemsContext = createContext(null);
+const storageKey = "eika-shopping-list";
+const ItemsContext = createContext(loadData(storageKey));
 
 export function ItemProvider({ children }) {
-  const [items, setItems] = useState(loadData("eika-shopping-list"));
+  const [items, setItems] = useState(loadData(storageKey));
   const value = { items, setItems };
-  useEffect(() => saveData("eika-shopping-list", items), [items]);
+
+  useEffect(() => saveData(storageKey, items), [items]);
 
   return (
     <ItemsContext.Provider value={value}>{children}</ItemsContext.Provider>

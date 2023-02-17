@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useItems } from "../../state/ItemsContext";
 
 export default function Form({ setModal }) {
-  const [items, setItems] = useItems();
+  const { items, setItems } = useItems();
+
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+
   const nameError = name.length < 1 && (
     <p className="error-text">Please enter a valid name.</p>
   );
