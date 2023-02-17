@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useItems } from "../../state/ItemsContext";
+import { nameErrorText, priceErrorText } from "../../scripts/addItemHelpers";
 
 export default function Form({ setModal }) {
   const { items, setItems } = useItems();
@@ -7,16 +8,8 @@ export default function Form({ setModal }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
-  const nameError = name.length < 1 && (
-    <p className="error-text">Please enter a valid name.</p>
-  );
-  const priceError = price < 1 && (
-    <p className="error-text">Please enter a valid price.</p>
-  );
-
-  function validate() {
-    setName(name.trim());
-  }
+  const nameError = name.length < 1 || (name.trim() < 1 && nameErrorText);
+  const priceError = price < 1 && priceErrorText;
 
   function onSubmit(e, name, price) {
     const addedItem = {
@@ -42,7 +35,6 @@ export default function Form({ setModal }) {
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        onBlur={() => validate()}
       />
       {nameError}
       <label>Price</label>
