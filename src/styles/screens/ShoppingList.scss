@@ -5,7 +5,8 @@
     margin: 0 auto $spacing-small;
   }
   p {
-    margin-bottom: $spacing-small;
+    margin: $spacing-small;
+    font-size: 16px;
   }
   .view-hidden-items {
     background: url(../../assets/images/icon-eye-open.svg) no-repeat 1px center;
