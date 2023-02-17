@@ -7,8 +7,8 @@ import { useItems } from "../state/ItemsContext";
 export default function ShoppingListing({ setModal }) {
   const { items, setItems } = useItems();
   const [showCompleted, setShowCompleted] = useState(false);
-  const completedItems = items.filter((item) => item.isCompleted === true);
-  const pendingItems = items.filter((item) => item.isCompleted === false);
+  const completedItems = items?.filter((item) => item.isCompleted === true);
+  const pendingItems = items?.filter((item) => item.isCompleted === false);
 
   function onCheck(id) {
     const clonedItems = [...items];

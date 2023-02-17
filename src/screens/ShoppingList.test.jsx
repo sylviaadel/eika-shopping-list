@@ -19,3 +19,17 @@ test("Verify that show completed items button, expands the completed list", () =
   //Assert
   expect(completed).toBeInTheDocument();
 });
+
+test("Verify the on click on Add item button, modal opens", () => {
+  const setModal = jest.fn();
+
+  //Arrange
+  render(<ShoppingListing setModal={setModal} />);
+  const button = screen.getByText("Add item");
+
+  //Act
+  fireEvent.click(button);
+
+  //Assert
+  expect(setModal).toHaveBeenCalledTimes(1);
+});
