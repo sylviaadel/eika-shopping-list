@@ -29,6 +29,7 @@
   font-size: 14px;
   font-weight: bold;
   border: 0;
+  cursor: pointer;
   &:hover,
   &:focus {
     background-color: $darkBlueColor;
@@ -41,6 +42,7 @@
   background-color: transparent;
   border: 0;
   display: inline-flex;
+  cursor: pointer;
 }
 @media (min-width: 550px) {
   .App {
