@@ -1,13 +1,12 @@
-export default function addItem(item) {
-  if (
-    item.name === undefined ||
-    item.name === null ||
-    item.name.trim() === ""
-  ) {
-    return null;
+export function addItemName(name) {
+  if (name === undefined || name === null || name.trim() === "") {
+    return false;
   }
-  if (item.price === null || item.price < 1) {
-    return null;
+  return true;
+}
+export function addItemPrice(price) {
+  if (price === null || price < 1) {
+    return false;
   }
-  return item;
+  return true;
 }

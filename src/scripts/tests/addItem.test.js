@@ -1,73 +1,59 @@
-import { render, screen, fireEvent } from "@testing-library/dom";
-import addItem from "./addItem";
+import { addItemName, addItemPrice } from "./addItem";
 
 test("Verify that name and price are correct", () => {
   //Arrange
-  const item = {
-    name: "Chair",
-    price: 300,
-  };
-  const result = item;
+  const name = "Chair";
+  const price = 300;
 
   //Action
-  const addedItem = addItem(item);
+  const addedItemName = addItemName(name);
+  const addedItemPrice = addItemPrice(price);
 
   //Assert
-  expect(result).toEqual(addedItem);
+  expect(addedItemName).toEqual(true);
+  expect(addedItemPrice).toEqual(true);
 });
 
 test("Verify that name is not empty", () => {
   //Arrange
-  const item = {
-    name: "",
-  };
-  const result = null;
+  const name = "";
 
   //Action
-  const addedItem = addItem(item);
+  const addedItemName = addItemName(name);
 
   //Assert
-  expect(result).toEqual(addedItem);
+  expect(addedItemName).toEqual(false);
 });
 
 test("Verify that name is not only spaces", () => {
   //Arrange
-  const item = {
-    name: "    ",
-  };
-  const result = null;
+  const name = "    ";
 
   //Action
-  const addedItem = addItem(item);
+  const addedItemName = addItemName(name);
 
   //Assert
-  expect(result).toEqual(addedItem);
+  expect(addedItemName).toEqual(false);
 });
 
 test("Verify that price is not empty", () => {
   //Arrange
-  const item = {
-    price: null,
-  };
-  const result = null;
+  const price = null;
 
   //Action
-  const addedItem = addItem(item);
+  const addedItemPrice = addItemPrice(price);
 
   //Assert
-  expect(result).toEqual(addedItem);
+  expect(addedItemPrice).toEqual(false);
 });
 
 test("Verify that price is not less than 1", () => {
   //Arrange
-  const item = {
-    price: -1,
-  };
-  const result = null;
+  const price = -1;
 
   //Action
-  const addedItem = addItem(item);
+  const addedItemPrice = addItemPrice(price);
 
   //Assert
-  expect(result).toEqual(addedItem);
+  expect(addedItemPrice).toEqual(false);
 });
