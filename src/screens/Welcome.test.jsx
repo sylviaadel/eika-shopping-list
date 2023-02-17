@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, queryByText } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Welcome from "./Welcome";
 import AddItemForm from "../components/modal/AddItemForm";
@@ -20,12 +20,13 @@ it("Verify the on click on Add item button, modal opens", () => {
   //Arrange
   render(<Welcome />);
   const button = screen.getByText("Add item");
-  const modal = screen.getByText("Cancel");
+  //const modal = screen.getByText("Cancel");
+  console.log(button);
 
   //Act
   fireEvent.click(button);
 
   //Assert
   //expect(modal).toBeCalled();
-  expect(modal).toBeInTheDocument();
+  expect(screen.getByTestId("modal-test-id")).toBeInTheDocument();
 });
