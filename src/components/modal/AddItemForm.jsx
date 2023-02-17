@@ -8,8 +8,8 @@ export default function Form({ setModal }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
-  const nameError = name.length < 1 || (name.trim() < 1 && nameErrorText);
-  const priceError = price < 1 && priceErrorText;
+  const nameErrorSpan = name.length < 1 || name.trim() < 1 ? nameErrorText : "";
+  const priceErrorSpan = price < 1 ? priceErrorText : "";
 
   function onSubmit(e, name, price) {
     const addedItem = {
@@ -19,11 +19,12 @@ export default function Form({ setModal }) {
       isCompleted: false,
     };
     e.preventDefault();
-    setItems([...items, addedItem]);
-    if (nameError || priceError) {
+    if (nameErrorSpan != "" || priceErrorSpan != "") {
       e.preventDefault();
+    } else {
+      setItems([...items, addedItem]);
+      setModal(null);
     }
-    setModal(null);
   }
 
   return (
@@ -36,7 +37,7 @@ export default function Form({ setModal }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      {nameError}
+      {nameErrorSpan}
       <label>Price</label>
       <input
         data-testid="price-textbox"
@@ -44,7 +45,7 @@ export default function Form({ setModal }) {
         value={price}
         onChange={(e) => setPrice(e.target.value)}
       />
-      {priceError}
+      {priceErrorSpan}
       <button data-testid="submit-btn" className="primary-btn" type="submit">
         Submit
       </button>
