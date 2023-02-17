@@ -1,11 +1,15 @@
-export default function Sorter(itemList) {
+import { useItems } from "../../state/ItemsContext";
+
+export default function Sorter() {
+  const { items, setItems } = useItems();
+  const clonedItems = [...items];
   function sortByName() {
-    itemList.sort((a, b) => (a.name > b.name ? 1 : -1));
-    return itemList;
+    const sortedList = clonedItems.sort((a, b) => (a.name > b.name ? 1 : -1));
+    setItems(sortedList);
   }
   function sortByPrice() {
-    itemList.sort(({ price: a }, { price: b }) => a - b);
-    return itemList;
+    const sortedList = clonedItems.sort(({ price: a }, { price: b }) => a - b);
+    setItems(sortedList);
   }
   return (
     <section className="sorter">
