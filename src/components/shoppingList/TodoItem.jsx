@@ -1,7 +1,10 @@
 export default function TodoItem({ item, onCheck }) {
   const { id, name, price, isCompleted } = item;
   return (
-    <article className={`todo-item ${isCompleted ? "completed" : ""}`}>
+    <article
+      className={`todo-item ${isCompleted ? "completed" : ""}`}
+      data-testid={`${isCompleted ? "completed" : "pending"}`}
+    >
       <label className="custom-checkbox">
         <input
           type="checkbox"

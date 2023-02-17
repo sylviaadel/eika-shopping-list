@@ -1,9 +1,8 @@
-import { render, screen, fireEvent, queryByText } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Welcome from "./Welcome";
-import AddItemForm from "../components/modal/AddItemForm";
 
-it("Verify that the rendered image on welcome screen is the correct one", () => {
+test("Verify that the rendered image on welcome screen is the correct one", () => {
   //Arrange
   render(<Welcome />);
 
@@ -16,16 +15,16 @@ it("Verify that the rendered image on welcome screen is the correct one", () => 
   expect(image.src).toContain("welcome-screen-img.png");
 });
 
-it("Verify the on click on Add item button, modal opens", () => {
+test("Verify the on click on Add item button, modal opens", () => {
+  const setModal = jest.fn();
+
   //Arrange
-  render(<Welcome />);
+  render(<Welcome setModal={setModal} />);
   const button = screen.getByText("Add item");
-  const modal = screen.getByText("Cancel");
 
   //Act
   fireEvent.click(button);
 
   //Assert
-  //expect(modal).toBeCalled();
-  expect(modal).toBeInTheDocument();
+  expect(setModal).toHaveBeenCalledTimes(1);
 });

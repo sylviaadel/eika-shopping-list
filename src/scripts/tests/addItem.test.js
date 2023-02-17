@@ -1,4 +1,4 @@
-import { addItemName, addItemPrice } from "./addItem";
+import { validItemName, validItemPrice } from "./addItem";
 
 test("Verify that name and price are correct", () => {
   //Arrange
@@ -6,8 +6,8 @@ test("Verify that name and price are correct", () => {
   const price = 300;
 
   //Action
-  const addedItemName = addItemName(name);
-  const addedItemPrice = addItemPrice(price);
+  const addedItemName = validItemName(name);
+  const addedItemPrice = validItemPrice(price);
 
   //Assert
   expect(addedItemName).toEqual(true);
@@ -19,7 +19,7 @@ test("Verify that name is not empty", () => {
   const name = "";
 
   //Action
-  const addedItemName = addItemName(name);
+  const addedItemName = validItemName(name);
 
   //Assert
   expect(addedItemName).toEqual(false);
@@ -30,7 +30,7 @@ test("Verify that name is not only spaces", () => {
   const name = "    ";
 
   //Action
-  const addedItemName = addItemName(name);
+  const addedItemName = validItemName(name);
 
   //Assert
   expect(addedItemName).toEqual(false);
@@ -41,7 +41,7 @@ test("Verify that price is not empty", () => {
   const price = null;
 
   //Action
-  const addedItemPrice = addItemPrice(price);
+  const addedItemPrice = validItemPrice(price);
 
   //Assert
   expect(addedItemPrice).toEqual(false);
@@ -52,7 +52,7 @@ test("Verify that price is not less than 1", () => {
   const price = -1;
 
   //Action
-  const addedItemPrice = addItemPrice(price);
+  const addedItemPrice = validItemPrice(price);
 
   //Assert
   expect(addedItemPrice).toEqual(false);
