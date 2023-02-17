@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, getByTestId } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ShoppingListing from "./ShoppingList";
 import { TestCompletedItemProvider } from "../state/ItemsContext";

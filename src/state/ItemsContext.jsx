@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { loadData, saveData } from "../scripts/dataManagement";
-import { completedItems } from "../scripts/completedData";
-import { pendingItems } from "../scripts/pendingData";
+import { completedItems } from "../scripts/tests/data/completedData";
+import { pendingItems } from "../scripts/tests/data/pendingData";
 
 const storageKey = "todo-list";
 const ItemsContext = createContext(loadData(storageKey));

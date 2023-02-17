@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import TodoList from "./TodoList";
-import { pendingItems } from "../../scripts/pendingData";
+import { pendingItems } from "../../scripts/tests/data/pendingData";
 
 test("Verify that on adding item in modal, it is added in the pending list", () => {
   //Arrange
