@@ -19,6 +19,13 @@
       background: url(../../assets/images/icon-eye-close.svg) no-repeat 1px
         center;
     }
+    & + .todo-item {
+      .item-name,
+      .item-price {
+        text-decoration: line-through;
+        color: $darkGreyColor;
+      }
+    }
   }
 }
 
