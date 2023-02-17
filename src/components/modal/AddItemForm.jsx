@@ -19,7 +19,7 @@ export default function Form({ setModal }) {
       isCompleted: false,
     };
     e.preventDefault();
-    if (nameErrorSpan != "" || priceErrorSpan != "") {
+    if (nameErrorSpan !== "" || priceErrorSpan !== "") {
       e.preventDefault();
     } else {
       setItems([...items, addedItem]);
