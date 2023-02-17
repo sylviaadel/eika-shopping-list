@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { loadData, saveData } from "../scripts/dataManagement";
 
-const storageKey = "eika-shopping-list";
+const storageKey = "todo-list";
 const ItemsContext = createContext(loadData(storageKey));
 
 export function ItemProvider({ children }) {
