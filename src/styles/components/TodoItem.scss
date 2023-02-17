@@ -4,6 +4,13 @@
   justify-content: space-between;
   font-size: 14px;
   align-items: center;
+  &.completed {
+    .item-name,
+    .item-price {
+      text-decoration: line-through;
+      color: $darkGreyColor;
+    }
+  }
   .item-name {
     text-transform: uppercase;
   }
