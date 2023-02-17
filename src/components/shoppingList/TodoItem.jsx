@@ -1,10 +1,7 @@
-import Checkbox from "./Checkbox";
-
 export default function TodoItem({ item, onCheck }) {
   const { id, name, price, isCompleted } = item;
   return (
-    <article className="todo-item">
-      {/* <Checkbox onCheck={isCompleted} /> */}
+    <article className={`todo-item ${isCompleted ? "completed" : ""}`}>
       <label className="custom-checkbox">
         <input
           type="checkbox"

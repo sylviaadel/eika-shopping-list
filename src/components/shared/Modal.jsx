@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 export default function Modal({ state }) {
   const [modal, setModal] = state;
 
-  const PortalElement = document.getElementById("portal");
+  const portal = document.getElementById("portal");
 
   if (modal === null) return null;
 
@@ -18,6 +18,6 @@ export default function Modal({ state }) {
         </button>
       </div>
     </div>,
-    PortalElement
+    portal
   );
 }
