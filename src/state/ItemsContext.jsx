@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { loadData, saveData } from "../scripts/dataManagement";
+import { completedItems } from "../scripts/completedData";
+import { pendingItems } from "../scripts/pendingData";
 
 const storageKey = "todo-list";
 const ItemsContext = createContext(loadData(storageKey));
@@ -15,6 +17,23 @@ export function ItemProvider({ children }) {
   );
 }
 
+export function TestCompletedItemProvider({ children }) {
+  const [items, setItems] = useState(completedItems);
+  const value = { items, setItems };
+
+  return (
+    <ItemsContext.Provider value={value}>{children}</ItemsContext.Provider>
+  );
+}
+
+export function TestPendingItemProvider({ children }) {
+  const [items, setItems] = useState(pendingItems);
+  const value = { items, setItems };
+
+  return (
+    <ItemsContext.Provider value={value}>{children}</ItemsContext.Provider>
+  );
+}
 export function useItems() {
   const itemsContext = useContext(ItemsContext);
   const error = "To use The Items Context import it on index.js";

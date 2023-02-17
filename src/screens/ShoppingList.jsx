@@ -34,7 +34,13 @@ export default function ShoppingListing({ setModal }) {
       >
         View Completed items
       </button>
-      {showCompleted && <TodoList items={completedItems} onCheck={onCheck} />}
+      {showCompleted && (
+        <TodoList
+          data-testid="todoList"
+          items={completedItems}
+          onCheck={onCheck}
+        />
+      )}
     </div>
   );
 }
