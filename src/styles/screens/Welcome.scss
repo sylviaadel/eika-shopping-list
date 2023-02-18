@@ -5,4 +5,16 @@
   p {
     margin-bottom: $spacing-small;
   }
+  img {
+    max-width: 200px;
+    height: auto;
+  }
+}
+
+@media (min-width: 550px) {
+  #welcome-screen {
+    img {
+      max-width: 400px;
+    }
+  }
 }
